@@ -18,6 +18,7 @@ SET(HDRS
     )
 
 # add the main library
+add_library(nanovg SHARED ${SRCS} ${HDRS})
 add_library(nanovg ${SRCS} ${HDRS})
  
 install (TARGETS nanovg DESTINATION ${CMAKE_INSTALL_LIBDIR})
