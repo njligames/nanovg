@@ -2,13 +2,15 @@ cmake_minimum_required(VERSION 3.7)
 
 # add the binary tree directory to the search path 
 # for include files
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/.. )
  
 SET(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/nanovg.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../android_file.cpp
     )
 
 SET(HDRS
+    ${CMAKE_CURRENT_SOURCE_DIR}/../android_file.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/fontstash.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/nanovg.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/nanovg_gl.h 

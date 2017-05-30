@@ -1,4 +1,5 @@
-//
+#include "android_file.h"
+
 // Copyright (c) 2009-2013 Mikko Mononen memon@inside.org
 //
 // This software is provided 'as-is', without any express or implied
@@ -877,7 +878,7 @@ int fonsAddFont(FONScontext* stash, const char* name, const char* path)
 	unsigned char* data = NULL;
 
 	// Read in the font data.
-	fp = fopen(path, "rb");
+	fp = mobile__fopen(path, "rb");
 	if (fp == NULL) goto error;
 	fseek(fp,0,SEEK_END);
 	dataSize = (int)ftell(fp);

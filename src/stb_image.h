@@ -1,3 +1,5 @@
+#include "android_file.h"
+
 /* stb_image - v2.10 - public domain image loader - http://nothings.org/stb_image.h
                                      no warranty implied; use at your own risk
 
@@ -1031,7 +1033,7 @@ static FILE *stbi__fopen(char const *filename, char const *mode)
    if (0 != fopen_s(&f, filename, mode))
       f=0;
 #else
-   f = fopen(filename, mode);
+   f = mobile__fopen(filename, mode);
 #endif
    return f;
 }
