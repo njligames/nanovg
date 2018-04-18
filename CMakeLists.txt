@@ -20,10 +20,16 @@ SET(HDRS
     )
 
 # add the main library
-add_library(nanovg SHARED ${SRCS} ${HDRS})
-#add_library(nanovg STATIC ${SRCS} ${HDRS})
+if(BUILD_SHARED_LIBS)
+  add_library(nanovg SHARED ${SRCS} ${HDRS})
+  install (TARGETS nanovg DESTINATION ${CMAKE_INSTALL_LIBDIR})
+endif()
+
+if(BUILD_STATIC_LIBS)
+  add_library(nanovg-static STATIC ${SRCS} ${HDRS})
+  install (TARGETS nanovg-static DESTINATION ${CMAKE_INSTALL_LIBDIR})
+endif()
  
-install (TARGETS nanovg DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install (FILES ${HDRS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 foreach(p LIB INCLUDE)
