@@ -27,3 +27,4 @@ build/*
 ## xcode specific
 *xcuserdata*
 _build/
+BUILD/
