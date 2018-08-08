@@ -20,13 +20,21 @@ SET(HDRS
     )
 
 # add the main library
-if(BUILD_SHARED_LIBS)
+if(BUILD_SHARED_LIB)
   add_library(nanovg SHARED ${SRCS} ${HDRS})
+  if(ANDROID)
+    find_library(android-lib android)
+    target_link_libraries(nanovg ${android-lib})
+  endif()
   install (TARGETS nanovg DESTINATION ${CMAKE_INSTALL_LIBDIR})
 endif()
 
-if(BUILD_STATIC_LIBS)
+if(BUILD_STATIC_LIB)
   add_library(nanovg-static STATIC ${SRCS} ${HDRS})
+  if(ANDROID)
+    find_library(android-lib android)
+    target_link_libraries(nanovg-static ${android-lib})
+  endif()
   install (TARGETS nanovg-static DESTINATION ${CMAKE_INSTALL_LIBDIR})
 endif()
  
